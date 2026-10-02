@@ -7,8 +7,14 @@ Bir algoritmayı sadece kelime ve cümlelerle tarif etmek, özellikle daha önce
 > [!NOTE]
 > Akış şeması, bir harita gibi çalışır: başlangıç noktasını gösterir, yolculuk boyunca yön verir ve varış noktasını işaret eder.
 
-![Akış şeması örneği](images/02-Flowchart-Example.jpg)  
-> (buraya örnek bir akış şeması görseli uygun olur)
+```mermaid
+flowchart TD
+    A([Başla]) --> B{İşlem yap}
+    B -->|Evet| C[/Sonuç al/]
+    B -->|Hayır| D[Başka dene]
+    C --> E([Bitir])
+    D --> B
+```
 
 ---
 
@@ -26,8 +32,7 @@ Bir programcıya görsel olarak anlatmak istediğinizde, her aşama için ekran 
 > [!TIP]
 > Akış şemasını çizmek, algoritmayı kodlamadan önce mantıksal hataları erken yakalamanın en etkili yollarından biridir.
 
-![Akış şeması ve metin notu karşılaştırması](images/02-Flowchart-vs-Text.jpg)  
-> (buraya görsel akış şeması ve metin tabanlı not karşılaştırması görseli uygundur)
+![Akış şeması ve metin notu karşılaştırması](images/02-Karşılaştırma.jpg)
 
 ---
 
@@ -37,35 +42,32 @@ Her şekil belirli bir anlam taşır. Bu sembolleri bilmek, akış şeması çiz
 
 ### 1. Başlangıç / Bitir Şekli
 
-**Şekli**: Yuvarlatılmış kenarları olan dikdörtgen (oval).
+**Şekli**: Yuvarlatılmış kenarları olan dikdörtgen (oval).  
 **Kullanım Alanı**: Bir algoritmanın başladığı ve bittiği noktayı gösterir.
 
-- İçine **Başla** (Start), **Başla**, **Giriş** (Input) veya **Bitir** (End), **Bitir**, **Çıkış** (Output) yazılır.
+- İçine **Başla** (Start) veya **Bitir** (End) yazılır.
 - Her akış şeması **tek bir Başla** ve **tek bir Bitir** ile başlamalı ve bitmelidir.
 
 > [!IMPORTANT]
 > Başlangıç ve bitiş şekilleri kesin olmalı; aksi takdirde akış şeması eksiksiz kalmaz.
 
-![Başlangıç ve bitiş şekilleri](images/02-Start-End-Shapes.jpg)  
-> (buraya başlangıç ve bitir şekli görseli uygun olur)
+![Başlangıç ve bitiş şekilleri](images/02-Başla-Bitir.jpg)  
 
 ### 2. İşlem Şekli
 
-**Şekli**: Normal dikdörtgen.
-
+**Şekli**: Normal dikdörtgen.  
 **Kullanım Alanı**: Bir işlem veya eylemi temsil eder.
 
 - Hesaplama: `Toplam = A + B`
 - Değer atama: `KullanıcıAdı = "Ali"`
 - Veri işleme: `Kod = Kod + 1`
 
-![İşlem şekli örneği](images/02-Process-Shape.jpg)  
-> (buraya işlem şekli görseli uygundur)
+![İşlem şekli örneği](images/02-İşlem.jpg)  
 
 ### 3. Karar Şekli
 
-**Şekli**: Elmas (rombüs) şekli.
-
+**Şekli**: Elmas (rombüs) şekli.  
+**Kullanım Alanı**: Belli karar sonucuna göre programın dallanması sağlanır.
 - İçine **soru** yazılır: `Sayı < 0 mu?`
 - Her çıkış yolu **Evet (E)** veya **Hayır (H)** ile etiketlenir.
 - Karar şekilleri genellikle **iki** çıkışa sahiptir (Evet ve Hayır).
@@ -73,25 +75,21 @@ Her şekil belirli bir anlam taşır. Bu sembolleri bilmek, akış şeması çiz
 > [!WARNING]
 > Karar şeklindeki soru net ve tek taraflı olmalı; belirsizlik bırakılmamalıdır.
 
-![Karar şekli örneği](images/02-Decision-Shape.jpg)  
-> (buraya karar şekli görseli uygun olur)
+![Karar şekli örneği](images/02-Karar.jpg)
 
 ### 4. Veri Şekli
 
-**Şekli**: Paralel kenarlı dikdörtgen.
+**Şekli**: Paralel kenarlı dikdörtgen.  
+**Kullanım Alanı**: Girdi (input) veya çıktı (output) işlemlerini gösterir.
 
-**Kullanım Alanı**: Giriş (input) veya çıktı (output) işlemlerini gösterir.
-
-- **Giriş**: Klavyeden veri okuma, dosya okuma, kullanıcı girişi.
+- **Girdi**: Klavyeden veri okuma, dosya okuma, kullanıcı girişi.
 - **Çıktı**: Ekrana yazdırma, dosyaya yazma, yazdırma işlemleri.
 
-![Veri şekli örneği](images/02-Data-Shape.jpg)  
-> (buraya veri şekli görseli uygun olur)
+![Veri şekli örneği](images/02-Girdi-Çıktı.jpg) 
 
 ### 5. Bağlantı Şekli
 
-**Şekli**: Küçük yuvarlak.
-
+**Şekli**: Küçük yuvarlak.  
 **Kullanım Alanı**: Akış şemasının sayfalar arası veya sayfa içinde uzun olan bölümlerini bağlamak için kullanılır.
 
 - İçine bir **harf** veya **numara** yazılır: `A`, `B`, `1`, `2`.
@@ -100,20 +98,17 @@ Her şekil belirli bir anlam taşır. Bu sembolleri bilmek, akış şeması çiz
 > [!NOTE]
 > Bağlantı şekilleri, özellikle uzun akış şemalarında sayfalar arasında akışı korumak için vazgeçilmezdir.
 
-![Bağlantı şekli örneği](images/02-Connector-Shape.jpg)  
-> (buraya bağlantı şekli görseli uygun olur)
+![Bağlantı şekli örneği](images/02-Bağlantı.jpg)  
 
 ### 6. Hazırlık / Döngü Şekli
 
-**Şekli**: Paralel kenarlı dikdörtgen.
-
+**Şekli**: Paralel kenarlı altıgen.  
 **Kullanım Alanı**: Bir döngünün başlatılmasını veya önceden tanımlı bir işlemin tekrarlanmasını gösterir.
 
 - `i = 0` ile başlatma.
 - `topla()` fonksiyonunu çağırma.
 
-![Hazırlık döngü şekli](images/02-Prepare-Loop-Shape.jpg)  
-> (buraya hazırlık döngü şekli görseli uygun olur)
+![Hazırlık döngü şekli](images/02-Döngü.jpg)  
 
 ---
 
@@ -132,8 +127,7 @@ Bir akış şeması çizerken uyulması gereken kurallar, okunabilirliği ve do�
 > [!IMPORTANT]
 > Bu kurallar izlenmezse akış şeması anlam kaybeder ve yanlış yorumlanabilir.
 
-![Akış şeması çizim kuralları örneği](images/02-Flowchart-Rules.jpg)  
-> (buraya akış şeması çizim kuralları görseli uygundur)
+![Akış şeması çizim kuralları örneği](images/02-Kurallar.jpg)  
 
 ### Dikkat Edilmesi Gereken İpuçları
 
@@ -161,11 +155,11 @@ Aşağıdaki adımları akış şeması olarak çizelim:
 
 ```mermaid
 flowchart TD
-    A[Başla] --> B[Sayı al]
-    B --> C{Sayı % 2 = 0?}
-    C -->|Evet| D[Yaz: Çift sayı]
-    C -->|Hayır| E[Yaz: Tek sayı]
-    D --> F[Bitir]
+    A([Başla]) --> B[/Sayı al/]
+    B --> C{Sayı % 2 == 0?}
+    C -- Evet --> D[/Yaz: Çift sayı/]
+    C -- Hayır --> E[/Yaz: Tek sayı/]
+    D --> F([Bitir])
     E --> F
 ```
 
@@ -192,9 +186,6 @@ Kullanıcıdan 0-100 arası bir not alın. Not 50 ve üzeri ise "Başarılı", a
 
 > [!IMPORTANT]
 > Her alıştırma için önce algoritmayı yazın, ardından akış şeması çizin; ikisini birleştirerek öğrenmeyi pekiştirin.
-
-![Alıştırmalar örneği](images/02-Exercises.jpg)  
-> (buraya alıştırmaların görsel örneği görseli uygun olur)
 
 ---
 

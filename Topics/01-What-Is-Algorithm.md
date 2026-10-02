@@ -8,17 +8,19 @@ Bilgisayarlar, sadece sayılar ve karakterleri işleyebilir. Bir işlem yapabilm
 > Algoritma, bir yemek tarifine benzer: malzemeler (girdiler), adımlar (süreç) ve sonuç (çıktı) içerir.
 
 ```mermaid
-flowchart TD
-    A[Başla] --> B{İşlem yap}
+flowchart LR
+    A([Başla]) --> B{İşlem yap}
     B -->|Evet| C[Sonuç al]
     B -->|Hayır| D[Başka dene]
-    C --> E[Bitir]
+    C --> E([Bitir])
     D --> B
 ```
 
 ---
 
-## Algoritma Tanımı: Evrensel Bir Kavram
+## Algoritma Tanımı
+
+>Evrensel Bir Kavram
 
 Algoritma, **belirli bir problemi çözmek için belirli bir sıralı adım dizisidir**. Her adım, önceki adımın sonucuna dayalı olarak yapılır ve sonunda kesin bir çıktı verir.
 
@@ -35,18 +37,9 @@ Algoritma, **belirli bir problemi çözmek için belirli bir sıralı adım dizi
 > [!TIP]
 > İyi bir algoritma, her adımını kesin ve ölçülebilir kılar; belirsiz kalmaz.
 
-```mermaid
-flowchart LR
-    A[Beş Özellik] --> B[Giriş]
-    A --> C[Çıkış]
-    A --> D[Belirli]
-    A --> E[Sonlu]
-    A --> F[Etkili]
-```
-
 ---
 
-## Algoritmanın Hayatımızda Herkese Açık Örnekleri
+## Algoritma Örnekleri
 
 ### 1. Kahve Yapım Algoritması
 
@@ -61,19 +54,6 @@ flowchart LR
 > [!IMPORTANT]
 > Her adım sıralı olmalı; örneğin kahveyi makineden almadan önce ekranı çalıştırmamalıyız.
 
-```mermaid
-flowchart TD
-    A[Su ekle] --> B[Kahve koy]
-    B --> C[Kapak kapa]
-    C --> D[Start tuşuna bas]
-    D --> E[Kahveyi çıkar]
-    E --> F{Şekerli isteniyor mu?}
-    F -->|Evet| G[Şeker ekle]
-    F -->|Hayır| H[İçeriği servis et]
-    G --> H
-    H --> I[Bitir]
-```
-
 ### 2. YouTube’da Video Arama Algoritması
 
 1. Tarayıcı açın.  
@@ -82,35 +62,6 @@ flowchart TD
 4. “Enter” tuşuna basın.  
 5. Listelenen videolar arasından istediğinizi seçin.  
 6. Video oynatıcıyı başlatın.
-
-```mermaid
-flowchart TD
-    A[Tarayıcı aç] --> B[YouTube sitesine git]
-    B --> C[Arama çubuğuna yazı yaz]
-    C --> D[Enter tuşuna bas]
-    D --> E[Sonuçları listele]
-    E --> F[İstenen videoyu seç]
-    F --> G[Video oynatıcıyı başlat]
-    G --> H[Bitir]
-```
-
-### 3. Diyalog Kutusu Açma Algoritması (Telefon)
-
-1. Telefon uçak modunu kapatın.  
-2. Ana sayfaya dönün.  
-3. “Telefon” uygulamasını açın.  
-4. Aranacak kişiyi girin.  
-5. “Ara” butonuna dokunun.  
-
-```mermaid
-flowchart TD
-    A[Uçak modunu kapat] --> B[Ana sayfaya dön]
-    B --> C[Telefon uygulamasını aç]
-    C --> D[Kişi numarasını gir]
-    D --> E[Ara butonuna dokun]
-    E --> F[Arama başlar]
-    F --> G[Bitir]
-```
 
 ---
 
@@ -131,20 +82,20 @@ Algoritma, karşılaştığınız bir problemin **adım adım çözüm yolunu** 
 Bilgisayarlar sadece “ilk = 5, sonra = 3” gibi basit komutları işletir. **Algoritma**, bu basit komutları bir araya toplayıp karmaşık işlerde kullanmamızı sağlar.
 
 > [!WARNING]
-> Algoritmadan çok fazla adım çıkarmak, programı gereksiz yavaşlatır ve hata olasılığını artırır.
+> Algoritmaya çok fazla adım eklemek, programı gereksiz yavaşlatır ve hata olasılığını artırır.
 
 ```mermaid
-flowchart TD
-    A[Başla] --> B[Metni oku]
+flowchart LR
+    A([Başla]) --> B[Metni oku]
     B --> C[Kelimeyi tara]
     C --> D{Eşleşti mi?}
     D -->|Evet| E[Sonuç: var]
     D -->|Hayır| F[Sonuç: yok]
-    E --> Z[Bitir]
+    E --> Z([Bitir])
     F --> Z
 ```
 
-### Soru 3: “Farklı Şekillerde Aynı İşleti Yapabilir miyim?”
+### Soru 3: “Farklı Şekillerde Aynı İşlemi Yapabilir miyim?”
 
 Evet! Aynı problem, farklı algoritmalarla çözülebilir. Örneğin, 100 sayı içinde en büyük sayıyı bulmak için:
 
@@ -172,12 +123,12 @@ Her yöntem farklıdır ama hepsi doğru sonucu verir.
 
 ```mermaid
 flowchart TD
-    A[Problemi belirle] --> B[Giriş-Çıkış tanımlı mı?]
+    A[Problemi belirle] --> B{Giriş-Çıkış tanımlı mı?}
     B -->|Hayır| C[Giriş ve çıkışları netleştir]
     C --> D[Adımları sırala]
     D --> E[Her adımı netleştir]
     E --> F[Çözümü test et]
-    F --> G[Bitir]
+    F --> G([Bitir])
 ```
 
 ### Aşama 2: Giriş ve Çıkışları Belirle
@@ -203,11 +154,11 @@ Bu aşamada, **çözüm için sıralanmamış adımlarla** başa çıkabilirsini
 
 ```mermaid
 flowchart TD
-    A[Koşul 1] -->|Evet| B[İşlem 1]
-    A -->|Hayır| C[Koşul 2]
+    A{Koşul 1} -->|Evet| B[İşlem 1]
+    A -->|Hayır| C{Koşul 2}
     C -->|Evet| D[İşlem 2]
     C -->|Hayır| E[İşlem 3]
-    B --> Z[Bitir]
+    B --> Z([Bitir])
     D --> Z
     E --> Z
 ```
@@ -233,11 +184,11 @@ Bitir.
 
 ```mermaid
 flowchart TD
-    A[Başla] --> B[Sayı = 7]
+    A([Başla]) --> B[Sayı = 7]
     B --> C{Sayı mod 2 = 0?}
-    C -->|Evet| D[Yaz: Çift sayıdır]
-    C -->|Hayır| E[Yaz: Tek sayıdır]
-    D --> F[Bitir]
+    C -->|Evet| D@{ shape: doc, label: "Çift sayıdır" }
+    C -->|Hayır| E@{ shape: doc, label: "Tek sayıdır" }
+    D --> F([Bitir])
     E --> F
 ```
 
@@ -260,10 +211,10 @@ Koşullara göre farklı sonuçlar verir.
 
 ```mermaid
 flowchart TD
-    A[Start] --> B{Koşul?}
+    A([Başla]) --> B{Koşul?}
     B -->|Evet| C[İşlem A]
     B -->|Hayır| D[İşlem B]
-    C --> E[End]
+    C --> E([Bitir])
     D --> E
 ```
 
@@ -274,7 +225,7 @@ Bir işlem belli kez veya koşul sağlandıkça tekrarlanır.
 
 ---
 
-## Algoritma Çiziminde İpuçları
+## Algoritma İpuçları
 
 - **Belli adımlar kesinlikle izlenecek** bir şey olmalı.
 - **“Ya da”, “ve”, “eğer” gibi kelimeler yerine “ise”, “diğer taktirde” gibi net ifadeler kullanın.
@@ -282,6 +233,8 @@ Bir işlem belli kez veya koşul sağlandıkça tekrarlanır.
 
 > [!TIP]
 > Akış şeması çizerken her kutucuğa kısa ve anlamlı ifadeler yazın; okunabilirliği artar.
+
+![](images/01-İpuçları.jpg)
 
 ---
 

@@ -7,14 +7,13 @@ Bilgisayarlar, verileri hafızalarında saklar. Bu veriler, her birinin kendine 
 > [!NOTE]
 > Bilgisayar belleği, raflar ve kutulardan oluşan bir depolama gibi düşünülebilir: her kutunun bir etiketi (isim) ve içindeki ürün türü (tip) vardır.
 
-![Bellek analogisi](images/03-Memory-Analogy.jpg)  
-> (buraya bellek analogisi görseli uygun olur)
+![Bellek analogisi](images/03-Bellek.jpg)  
 
 ---
 
 ## Değişken Nedir? ve Nasıl Kullanılır?
 
-Bir **değişken**, verileri saklamak için kullanılan bir "kavadır". Değişken yaratıldığında (veya tanımlanırken), bilgisayar belli bir bellek bölgesini o veriye ayırır. Daha sonra programın herhangi bir yerinde bu değişkenin ismini çağırarak değeri alabilir ya da değiştirebilirsiniz.
+Bir **değişken**, verileri saklamak için kullanılan bir "kutudur". Değişken yaratıldığında (veya tanımlanırken), bilgisayar belli bir bellek bölgesini o veriye ayırır. Daha sonra programın herhangi bir yerinde bu değişkenin ismini çağırarak değeri alabilir ya da değiştirebilirsiniz.
 
 ### Değişken Nasıl Tanımlanır?
 
@@ -29,8 +28,7 @@ Genellikle değişken tanımlamak için **isim + tip** şeklinde bir ifade kulla
 > [!TIP]
 > Değişken isimleri anlamlı olmalı: `x` yerine `kullaniciYasi`, `sayi` yerine `toplam` gibi isimler tercih edilmelidir.
 
-![Değişken tanımlama örneği](images/03-Variable-Declaration.jpg)  
-> (buraya değişken tanımlamak için örnek kod görseli uygun olur)
+![Değişken tanımlama örneği](images/03-Değişken-Tanımlama.jpg)  
 
 ### Birkaç Örnek
 
@@ -68,7 +66,7 @@ Programlama dillerinin çoğu, verileri kategorize etmek için birkaç temel ver
 
 ### 2. Ondalıklı Sayı (Float / Double)
 
-- **Açıklama**: Ondalıklı (ondalıklıklı) sayılar. Daha hassas matematiksel işlemler için kullanılır.
+- **Açıklama**: Küsüratlı / ondalıklı sayılar. Daha hassas matematiksel işlemler için kullanılır.
 - **Örnek**: 3.14, -0.5, 2.0, 100.75
 - **Kullanım Alanı**: Ölçümler, fiziksel veriler, grafik koordinatları.
 - **Bellek**: 4 byte (float) veya 8 byte (double).
@@ -118,9 +116,7 @@ Bir **sabit**, değiştirilemez bir değerdir. Değişkenlerin aksine, program �
 > [!TIP]
 > Sabit isimleri genellikle büyük harfle yazılır (örn: `PI`, `MAX_KULLANICI`) – bu da değişkenlerden ayırt edilmesini sağlar.
 
-![Sabit kullanım örneği](images/03-Constants-Example.jpg)  
-> (buraya sabitler kullanımının görsel örneği uygun olur)
-
+![Sabit kullanım örneği](images/03-Sabitler.jpg) 
 ---
 
 ## Veri Dönüşümleri (Type Casting)
@@ -158,8 +154,7 @@ Değer: int(fiyatMetni)  # 100 çıktısı
 > [!WARNING]
 > Geçersiz metni sayıya çevirmeyi denerseniz (örn: `"abc"`), hata alabilir; giriş verisini önceden doğrulayın.
 
-![Veri dönüşüm örneği](images/03-Type-Casting.jpg)  
-> (buraya veri dönüşüm örnekleri görseli uygun olur)
+![Veri dönüşüm örneği](images/03-Tip-Dönüşümü.jpg)
 
 ---
 
@@ -177,16 +172,15 @@ Değişken isimlendirirken dikkat edilmesi gereken bazı kuralar ve en iyi uygul
 
 | Hatalı İsim | Neden | Doğru İsim | Açıklama |
 |-------------|-------|------------|----------|
-| `user-name` | Tırnak içermiyor olabilir | `user_name` | Alt çizgi tercih edilmeli |
-| `2big` | Sayıyla başlar | `big2` | Sayı alt üfle eklenmeli |
-| `if` | Ayrılmış kelime | `kosul` | Ayrılmış kelimeler kullanılmayalı |
+| `user-name` | Tire (-) operatör olarak algılanır, alt çizgi (_) kullanılmalı | `user_name` | Alt çizgi tercih edilmeli |
+| `2big` | Sayıyla başlar | `big2` | Sayı başa değil, sona eklenmeli |
+| `if` | Ayrılmış kelime | `kosul` | Ayrılmış kelimeler kullanılmamalı |
 | `user age` | Boşluk var | `user_age` | Boşluk yerine alt çizgi |
 
 > [!NOTE]
 > Bazı dillerde değişken isimleri case-sensitive (büyük/küçük harf duyarlıdır): `age` ve `Age` farklıdır.
 
-![Değişken isimlendirme kuralları](images/03-Variable-Naming-Rules.jpg)  
-> (buraya değişken isimlendirme kurallarının karşılaştırması görseli uygun olur)
+![Değişken isimlendirme kuralları](images/03-Değişken-İsimlendirme.jpg) 
 
 ---
 
@@ -217,15 +211,21 @@ yeni_yas = yas + 10
 
 # Sonuçlar ekrana yazdırılıyor
 Yaz: "Kullanıcı: " + kullanici_adi
-Yaz: "Yaş: " + yas
-Yaz: "Yeni Yaş: " + yeni_yas
+Yaz: "Yaş: " + metin(yas)  # metin(yas) → string dönüşümü
+Yaz: "Yeni Yaş: " + metin(yeni_yas)  # metin(yeni_yas) → string dönüşümü
 ```
 
 > [!TIP]
 > Bu örnekte `yas` değişkeni bir kez tanımlanır ve ardından değeri değiştirilir; böylece bellekte sadece bir konum kullanılır.
 
-![Kullanıcı bilgisi örneği](images/03-User-Info-Example.jpg)  
-> (buraya örnek uygulama görseli uygun olur)
+```mermaid
+graph LR
+    subgraph RAM [Bilgisayar Hafızası - RAM]
+        A["[Etiket: kullaniciYasi]\nTip: Integer\nDeğer: 25"]
+        B["[Etiket: kullaniciAdi]\nTip: String\nDeğer: 'Ali'"]
+        C["[Etiket: PI]\nTip: Constant Float\nDeğer: 3.14159"]
+    end
+```
 
 ---
 
@@ -247,10 +247,6 @@ Kullanıcıdan bir not (0-100 arası) alın. Not 50 ve üzeri ise "Başarılı",
 
 > [!IMPORTANT]
 > Her alıştırma için önce değişkenleri tanımlayın, sonra işlemleri yapın, sonunda sonucu gösterin.
-
-![Alıştırmalar örneği](images/03-Exercises.jpg)  
-> (buraya alıştırmaların görsel örneği uygun olur)
-
 ---
 
 ## Özet
