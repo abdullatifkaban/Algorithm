@@ -7,7 +7,7 @@ Bir program yalnızca komutları yukarıdan aşağıya sırayla çalıştırmakl
 > \[!NOTE\]
 > Karar yapısı bir yol ayrımı (kavşak) gibidir: Hangi yoldan ilerleyeceğinizi o andaki koşul belirler.
 
-```
+```mermaid
 flowchart TD
     A([Başla]) --> B{Koşul Doğru mu?}
     B -- Evet --> C[İşlem A]
@@ -70,7 +70,7 @@ Birden fazla koşulu tek bir kararda birleştirmek için kullanılır.
 
 Koşul sağlandığında (`True`) belirli bir işlem yapılır. Koşul sağlanmıyorsa (`False`) hiçbir şey yapmadan akışa devam edilir.
 
-```
+```mermaid
 flowchart TD
     A([Başla]) --> B{Sayı > 0?}
     B -- Evet --> C[/Ekrana Yaz: Pozitif/]
@@ -83,7 +83,7 @@ flowchart TD
 
 Koşul sağlandığında bir yol, sağlanmadığında ise alternatif bir yol izlenir.
 
-```
+```mermaid
 flowchart TD
     A([Başla]) --> B{Not >= 50?}
     B -- Evet --> C[/Ekrana Yaz: Başarılı/]
@@ -97,7 +97,7 @@ flowchart TD
 
 Birden fazla olasılığın ve koşulun sırayla kontrol edildiği durumlar için kullanılır. Koşullardan biri sağlandığında ilgili blok çalışır ve yapıdan çıkılır.
 
-```
+```mermaid
 flowchart TD
     A([Başla]) --> B{Not >= 90?}
     B -- Evet --> C[Harf Notu: A]
@@ -147,7 +147,7 @@ SON SEÇİM
 
 6. **Bitir**
 
-```
+```mermaid
 flowchart TD
     A([Başla]) --> B[/Sayı Al/]
     B --> C{Sayı > 0?}
