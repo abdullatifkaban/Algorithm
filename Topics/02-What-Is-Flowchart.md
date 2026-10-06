@@ -2,10 +2,10 @@
 
 ## Giriş: Programlama Sürecinde Görsel Akış Şeması
 
-Bir algoritmayı sadece kelime ve cümlelerle tarif etmek, özellikle daha önce hiç programlama bilmeyen biri için yeterince açık olmayabilir. **Akış şeması (flowchart)**, bir sürecin her adımının görsel bir haritasıdır — oklar, kutular ve daireler kullanarak neyin, hangi sırayla ve nasıl yapıldığını gösterir.
+Bir algoritmayı sadece kelime ve cümlelerle tarif etmek, özellikle daha önce hiç programlama deneyimi olmayan biri için yeterince açık olmayabilir. **Akış şeması (flowchart)**, bir sürecin her adımının görsel bir haritasıdır. Oklar, kutular ve geometrik şekiller kullanarak neyin, hangi sırayla ve nasıl yapıldığını adım adım gösterir.
 
 > [!NOTE]
-> Akış şeması, bir harita gibi çalışır: başlangıç noktasını gösterir, yolculuk boyunca yön verir ve varış noktasını işaret eder.
+> Akış şeması, tıpkı bir yol haritası gibi çalışır: başlangıç noktasını gösterir, yolculuk boyunca yön verir ve varış noktasını işaret eder.
 
 ```mermaid
 flowchart TD
@@ -18,95 +18,107 @@ flowchart TD
 
 ---
 
-## Akış Şemasının Ne İşe Yaradığını Anlamak: Bu Haritayı Neden Çizelim?
+## Akış Şemalarının Önemi ve Avantajları
 
-Bir programcıya görsel olarak anlatmak istediğinizde, her aşama için ekran görüntüsü çizmek yerine; sistemin nasıl çalıştığını özetleyen tek bir görsel harita bırakmak çok daha etkilidir.
+Bir algoritmayı görsel olarak temsil etmek, karmaşık sistemlerin anlaşılmasını kolaylaştırır ve geliştirme sürecini hızlandırır.
+
+### Hızlı Özet: Temel Şekiller Referans Tablosu
+
+| Sembol / Şekil | Şekil Adı | İşlevi / Kullanım Alanı |
+| :--- | :--- | :--- | 
+| **Oval / Yuvarlatılmış Kutucuk** | Başlangıç / Bitiş | Algoritmanın başladığı veya bittiği nokta | 
+| **Dikdörtgen** | İşlem (Process) | Hesaplama, atama ve veri işleme adımları | 
+| **Eşkenar Dörtgen (Elmas)** | Karar (Decision) | Koşullu dallanma ve mantıksal kontrol | 
+| **Paralelkenar** | Veri / Girdi-Çıktı (I/O) | Kullanıcıdan veri alma veya ekrana yazdırma |
+| **Küçük Daire** | Bağlantı (Connector) | Farklı akış yollarını birleştirme / Sayfa geçişleri | 
+| **Düzgün Altıgen** | Hazırlık / Döngü (Loop) | Döngü değişkeni tanımlama ve yineleme |
 
 ### Akış Şemalarının Avantajları
 
-- **Hızlı anlaşılma**: Gözün oklarla yön değiştirmesini takip etmek, uzun metinler okumaktan çok daha hızlıdır.
-- **Hata yakalama**: Görselleştirme sırasında mantık hatalarını, kayıp adımları ve sonsuz döngüleri görmek çok daha kolaydır.
-- **Paylaşım**: Başka bir programcının kodunu okumadan, ne yaptığını anlamasını sağlar.
-- **Belgeleme**: Gelecekte projenize geri döndüğünüzde, akış şeması ne yaptığınızı hatırlatır.
+- **Hızlı Anlaşılma**: Görsel akışı ve okları takip etmek, uzun paragraflar okumaktan çok daha hızlı ve etkilidir.
+- **Mantık Hatalarını Yakalama**: Görselleştirme sayesinde eksik adımlar, hatalı yönlendirmeler ve sonsuz döngüler kolayca fark edilir.
+- **Ekip İçi İletişim ve Paylaşım**: Yazılım ekibindeki diğer kişilerin koda boğulmadan algoritmanın özünü anlamasını sağlar.
+- **Etkili Belgeleme**: Gelecekte projeye geri dönüldüğünde veya yeni bir geliştirici dahil olduğunda kılavuz görevi görür.
 
 > [!TIP]
-> Akış şemasını çizmek, algoritmayı kodlamadan önce mantıksal hataları erken yakalamanın en etkili yollarından biridir.
+> Akış şemasını çizmek, algoritmayı kodlamaya geçmeden önce mantıksal hataları tespit etmenin en pratik yoludur.
 
 ![Akış şeması ve metin notu karşılaştırması](images/02-Karşılaştırma.jpg)
 
 ---
 
-## Temel Akış Şeması Şekilleri
+## Temel Akış Şeması Şekilleri ve Anlamları
 
-Her şekil belirli bir anlam taşır. Bu sembolleri bilmek, akış şeması çizerken size temel alfabeyi verir.
+Her şekil belirli bir standart anlam taşır. Bu semboller, akış şeması çizerken kullanacağınız temel alfabeyi oluşturur.
 
-### 1. Başlangıç / Bitir Şekli
+### 1. Başlangıç / Bitiş Şekli (Terminal)
 
-**Şekli**: Yuvarlatılmış kenarları olan dikdörtgen (oval).  
-**Kullanım Alanı**: Bir algoritmanın başladığı ve bittiği noktayı gösterir.
+**Şekli**: Yuvarlatılmış kenarları olan dikdörtgen veya oval.  
+**Kullanım Alanı**: Bir algoritmanın başladığı ve sonlandığı noktaları gösterir.
 
-- İçine **Başla** (Start) veya **Bitir** (End) yazılır.
-- Her akış şeması **tek bir Başla** ve **tek bir Bitir** ile başlamalı ve bitmelidir.
+- İçine **Başla** (Start) veya **Bitir** (End/Stop) yazılır.
+- Her akış şeması kesinlikle **tek bir Başla** adımı ile başlamalı ve **en az bir Bitir** adımı ile sonlanmalıdır.
 
 > [!IMPORTANT]
-> Başlangıç ve bitiş şekilleri kesin olmalı; aksi takdirde akış şeması eksiksiz kalmaz.
+> Başlangıç ve bitiş noktaları net olmayan bir akış şeması eksik kabul edilir.
 
 ![Başlangıç ve bitiş şekilleri](images/02-Başla-Bitir.jpg)  
 
-### 2. İşlem Şekli
+### 2. İşlem Şekli (Process)
 
-**Şekli**: Normal dikdörtgen.  
-**Kullanım Alanı**: Bir işlem veya eylemi temsil eder.
+**Şekli**: Dikdörtgen.  
+**Kullanım Alanı**: Matematiksel hesaplamalar, değer atamaları veya veri dönüştürme adımlarını temsil eder.
 
 - Hesaplama: `Toplam = A + B`
 - Değer atama: `KullanıcıAdı = "Ali"`
-- Veri işleme: `Kod = Kod + 1`
+- Sayaç güncelleme: `Sayaç = Sayaç + 1`
 
 ![İşlem şekli örneği](images/02-İşlem.jpg)  
 
-### 3. Karar Şekli
+### 3. Karar Şekli (Decision)
 
-**Şekli**: Elmas (rombüs) şekli.  
-**Kullanım Alanı**: Belli karar sonucuna göre programın dallanması sağlanır.
-- İçine **soru** yazılır: `Sayı < 0 mu?`
-- Her çıkış yolu **Evet (E)** veya **Hayır (H)** ile etiketlenir.
-- Karar şekilleri genellikle **iki** çıkışa sahiptir (Evet ve Hayır).
+**Şekli**: Eşkenar dörtgen (Elmas / Rombüs).  
+**Kullanım Alanı**: Bir koşulun sonucuna göre (Doğru/Yanlış) akışın farklı yollara sapmasını sağlar.
+
+- İçine net bir **soru veya koşul** yazılır: `Sayı < 0 mı?`
+- Her çıkış yolu **Evet (E) / Hayır (H)** veya **Doğru (D) / Yanlış (Y)** şeklinde etiketlenir.
+- Karar şekilleri genel olarak **iki** farklı çıkış yoluna sahiptir.
 
 > [!WARNING]
-> Karar şeklindeki soru net ve tek taraflı olmalı; belirsizlik bırakılmamalıdır.
+> Karar sembolü içindeki soru net olmalı; muğlak veya iki anlamlı ifadeler kullanılmamalıdır.
 
 ![Karar şekli örneği](images/02-Karar.jpg)
 
-### 4. Veri Şekli
+### 4. Veri / Girdi-Çıktı Şekli (Input / Output)
 
-**Şekli**: Paralel kenarlı dikdörtgen.  
-**Kullanım Alanı**: Girdi (input) veya çıktı (output) işlemlerini gösterir.
+**Şekli**: Paralelkenar.  
+**Kullanım Alanı**: Dış dünyadan veri alma (Girdi) veya dış dünyaya veri aktarma (Çıktı) işlemlerini gösterir.
 
-- **Girdi**: Klavyeden veri okuma, dosya okuma, kullanıcı girişi.
-- **Çıktı**: Ekrana yazdırma, dosyaya yazma, yazdırma işlemleri.
+- **Girdi**: Klavyeden değer okuma, dosyadan veri alma, kullanıcı girişi.
+- **Çıktı**: Ekrana sonuç yazdırma, dosyaya kaydetme veya yazıcıya gönderme.
 
 ![Veri şekli örneği](images/02-Girdi-Çıktı.jpg) 
 
-### 5. Bağlantı Şekli
+### 5. Bağlantı Şekli (Connector)
 
-**Şekli**: Küçük yuvarlak.  
-**Kullanım Alanı**: Akış şemasının sayfalar arası veya sayfa içinde uzun olan bölümlerini bağlamak için kullanılır.
+**Şekli**: Küçük daire.  
+**Kullanım Alanı**: Sayfa içine dağılmış karmaşık akış hatlarını birleştirmek veya sayfalar arası geçişleri sağlamak için kullanılır.
 
-- İçine bir **harf** veya **numara** yazılır: `A`, `B`, `1`, `2`.
-- Sayfa sonuna yaklaştığında bağlantı noktası kullanılır, devamı başka bir bağlantı noktasında devam eder.
+- İçine yönlendirici bir **harf** veya **sayı** yazılır: `A`, `B`, `1`, `2`.
+- Akış çizgisinin karmaşıklaşmasını önler ve okunabilirliği artırır.
 
 > [!NOTE]
-> Bağlantı şekilleri, özellikle uzun akış şemalarında sayfalar arasında akışı korumak için vazgeçilmezdir.
+> Bağlantı elemanları, karmaşık ve çok sayfalı akış şemalarında düzeni korumak için hayati önem taşır.
 
 ![Bağlantı şekli örneği](images/02-Bağlantı.jpg)  
 
-### 6. Hazırlık / Döngü Şekli
+### 6. Hazırlık / Döngü Şekli (Preparation / Loop)
 
-**Şekli**: Paralel kenarlı altıgen.  
-**Kullanım Alanı**: Bir döngünün başlatılmasını veya önceden tanımlı bir işlemin tekrarlanmasını gösterir.
+**Şekli**: Düzgün altıgen.  
+**Kullanım Alanı**: Sayaçların başlatılması, döngü koşullarının ve adım miktarlarının önceden belirlenmesi için kullanılır.
 
-- `i = 0` ile başlatma.
-- `topla()` fonksiyonunu çağırma.
+- Değişken başlatma: `i = 1 to N`
+- Belirli sayıda tekrarlanacak işlemleri kontrol etme.
 
 ![Hazırlık döngü şekli](images/02-Döngü.jpg)  
 
@@ -114,90 +126,88 @@ Her şekil belirli bir anlam taşır. Bu sembolleri bilmek, akış şeması çiz
 
 ## Akış Şeması Çizim Kuralları
 
-Bir akış şeması çizerken uyulması gereken kurallar, okunabilirliği ve doğruluğu garanti eder.
+Standartlara uygun bir akış şeması çizmek, algoritmanın herkes tarafından aynı şekilde anlaşılmasını sağlar.
 
 ### Temel Kurallar
 
-1. **Yukarıdan aşağıya, soldan sağa**: Akış genel olarak yukarıdan aşağıya doğru ilerlemelidir.
-2. **Oklar mutlaka çizilmelidir**: Her iki şekil arasındaki bağlantı ok ile gösterilmelidir (bağlantı noktası hariç).
-3. **Döngüler kapalı olmalıdır**: Her döngü, başladığı noktaya geri dönen bir ok ile tamamlanmalıdır.
-4. **Tüm dallar sonlanır**: Karar şekillerinin her çıkış yolu (Evet ve Hayır) bir yere bağlanmalıdır; "havada kalan" ok bulunmamalıdır.
-5. **Tek bir başlangıç noktası**: Akış şeması bir noktadan başlamalıdır.
+1. **Yön Standardı (Yukarıdan Aşağıya, Soldan Sağa)**: Akış çizgileri genel olarak yukarıdan aşağıya ve soldan sağa doğru ilerlemelidir.
+2. **Bağlantı Okları**: Şekiller arasındaki ilişki ve yön mutlaka ok başları ile gösterilmelidir.
+3. **Kapalı Döngüler**: Bir döngü yapısı var ise, tekrarlayan akış çizgisi döngü başlangıcına açıkça geri dönmelidir.
+4. **Boşta Kalan Yol Olmamalıdır**: Karar yapılarından çıkan tüm dallar (Evet/Hayır) mutlaka bir sonraki adımla veya bitişle birleştirilmelidir.
+5. **Tek Başlangıç Noktası**: Her akış şemasında yalnızca bir adet "Başla" sembolü bulunmalıdır.
 
 > [!IMPORTANT]
-> Bu kurallar izlenmezse akış şeması anlam kaybeder ve yanlış yorumlanabilir.
+> Bu kurallara uyulmaması akış şemasının yanlış yorumlanmasına ve kodlama aşamasında mantık hatalarına yol açar.
 
 ![Akış şeması çizim kuralları örneği](images/02-Kurallar.jpg)  
 
-### Dikkat Edilmesi Gereken İpuçları
+### Okunabilirliği Artıran İpuçları
 
-- Her şekil içine kısa, net ifadeler yazın.
-- Ok yönlerini belirten **Evet/Hayır** etiketlerini unutmayın.
-- Karmaşık süreçlerde sayfaları bölüp bağlantı noktaları kullanın.
-- Renk kullanımından kaçının; monokromatik çizimler daha kolay yazdırılır ve okunur.
+- Şekillerin içerisine kısa, net ve anlaşılır ifadeler yazın.
+- Karar yapılarındaki çıkış oklarına **Evet/Hayır** etiketlerini eklemeyi unutmayın.
+- Çizgilerin birbiriyle çakışmasını önlemek için bağlantı noktaları kullanın.
+- Doküman çıktıları düşünülerek renkli çizimler yerine net konturlu monokromatik tasarımları tercih edebilirsiniz.
 
 ---
 
-## Basit Bir Örnek: Sayının Çift mi Tek mi Olduğunu Kontrol Etme
+## Uygulama Örneği: Sayının Çift mi Tek mi Olduğunun Kontrolü
 
-Aşağıdaki adımları akış şeması olarak çizelim:
+Bir kullanıcının girdiği sayının çift veya tek olduğunu tespit eden akış şeması adımları şu şekildedir:
 
 1. **Başla**
-2. Kullanıcıdan bir sayı al
-3. Sayıyı 2'ye böl ve kalanı kontrol et
-4. Eğer kalan 0 ise → "Çift sayı"
-5. Aksi halde → "Tek sayı"
-6. Sonucu ekrana yaz
-7. **Bitir**
-
-> [!TIP]
-> Bu örnek, karar yapısının akış şemasında nasıl kullanıldığını gösterir.
+2. Kullanıcıdan bir sayı al (`Sayı`)
+3. Sayının 2'ye bölümünden kalanı hesapla (`Kalan = Sayı % 2`)
+4. **Kalan == 0** mı kontrol et:
+   - **Evet** ise → Ekrana "Çift Sayı" yazdır.
+   - **Hayır** ise → Ekrana "Tek Sayı" yazdır.
+5. **Bitir**
 
 ```mermaid
 flowchart TD
     A([Başla]) --> B[/Sayı al/]
     B --> C{Sayı % 2 == 0?}
-    C -- Evet --> D[/Yaz: Çift sayı/]
-    C -- Hayır --> E[/Yaz: Tek sayı/]
+    C -- Evet --> D[/Ekrana Yaz: Çift Sayı/]
+    C -- Hayır --> E[/Ekrana Yaz: Tek Sayı/]
     D --> F([Bitir])
     E --> F
 ```
-
-![Çift-tek kontrolü akış şeması](images/02-Even-Odd-Flowchart.jpg)  
-> (buraya çift-tek kontrolünün akış şeması görseli uygun olur)
-
 ---
 
 ## Alıştırmalar
 
-Aşağıdaki alıştırmaları kendi başınıza çözün. Her birini önce bir algoritma olarak yazın, sonra akış şeması olarak çizin.
+Aşağıdaki alıştırmaları inceleyerek kendi akış şemalarınızı oluşturun. Önce adım adım algoritmasını metin olarak yazın, ardından şemasını çizin.
 
 ### Alıştırma 1: İki Sayının Toplamını Hesaplama
+Kullanıcıdan iki sayı alın, bu sayıları toplayın ve sonucu ekrana yazdırın.
 
-Kullanıcıdan iki sayı alın, toplan ve sonucu ekrana yazdırın.
+### Alıştırma 2: Sayının Pozitif, Negatif veya Sıfır Olduğunu Kontrol Etme
+Kullanıcıdan bir sayı alın. Sayı 0'dan büyükse "Pozitif", 0'dan küçükse "Negatif", 0'a eşitse "Sıfır" mesajı verin.
 
-### Alıştırma 2: Sayının Pozitif mi Negatif mi Olduğunu Kontrol Etme
+```mermaid
+flowchart TD
+    A([Başla]) --> B[/Sayı Giriniz/]
+    B --> C{Sayı > 0?}
+    C -- Evet --> D[/Yaz: Pozitif/]
+    C -- Hayır --> E{Sayı < 0?}
+    E -- Evet --> F[/Yaz: Negatif/]
+    E -- Hayır --> G[/Yaz: Sıfır/]
+    D --> H([Bitir])
+    F --> H
+    G --> H
+```
 
-Kullanıcıdan bir sayı alın. Sayı 0'dan büyükse "Pozitif", 0'dan küçükse "Negatif", tam olarak 0 ise "Sıfır" yazdırın.
-
-### Alıştırma 3: Notun Geçme mi Geçmemiş mi Olduğunu Kontrol Etme
-
-Kullanıcıdan 0-100 arası bir not alın. Not 50 ve üzeri ise "Başarılı", altı ise "Başarısız" yazdırın.
+### Alıştırma 3: Notun Geçme / Kalma Durumunu Kontrol Etme
+Kullanıcıdan 0–100 arası bir ders notu alın. Not 50 ve üzerinde ise "Başarılı", 50'nin altında ise "Başarısız" sonucunu ekrana yazdırın.
 
 > [!IMPORTANT]
-> Her alıştırma için önce algoritmayı yazın, ardından akış şeması çizin; ikisini birleştirerek öğrenmeyi pekiştirin.
+> Pratik yaparken önce algoritmik mantığı kurmak, ardından bunu akış şeması sembollerine dökmek öğrenme sürecini hızlandıracaktır.
 
 ---
 
 ## Özet
 
-- **Akış şeması (flowchart)**, bir sürecin adım adım görsel haritasıdır.
-- **Ana şekiller**: Başlangıç/Bitir, İşlem, Karar, Veri, Bağlantı, Hazırlık.
-- Her karar şekli **Evet** ve **Hayır** yollarıyla sonlandırılmalıdır.
-- Akış şeması **yatay ve dikey oklar** ile okunabilirliği sağlar.
-- Algoritmadan koda geçişte köprü görevi görür.
-
-> [!NOTE]
-> Akış şeması becerisi, karar yapıları ve döngüler konusuna geçmeden önce önceden kazanılmalıdır.
-
-Sonraki bölümde **Değişkenler, Sabitler ve Veri Tipleri** konusuna geçeceğiz.
+- **Akış şeması (flowchart)**, bir algoritmanın adım adım görselleştirilmiş haritasıdır.
+- **Temel Elemanlar**: Başla/Bitir (Oval), İşlem (Dikdörtgen), Karar (Elmas), Veri (Paralelkenar), Bağlantı (Daire), Döngü (Altıgen).
+- Karar yapılarında tüm olası çıkış yolları (**Evet/Hayır**) açıkça belirtilmelidir.
+- Standart yönler ve oklar mantıksal takibi kolaylaştırır.
+- Akış şeması, algoritma tasarımından kod yazımına geçişte en önemli köprüdür.
